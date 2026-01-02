@@ -6,9 +6,11 @@ const pool = mysql.createPool({
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   port: Number(process.env.DB_PORT),
+  ssl: {
+    rejectUnauthorized: false
+  },
   waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  connectionLimit: 10
 });
 
 // TESTE DE CONEXÃO IMEDIATO
@@ -21,5 +23,6 @@ const pool = mysql.createPool({
     console.error('❌ ERRO AO CONECTAR NO BANCO:', err.message);
   }
 })();
+
 
 module.exports = pool;
