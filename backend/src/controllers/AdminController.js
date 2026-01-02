@@ -74,3 +74,16 @@ exports.buscarInscricaoPorId = async (req, res) => {
   }
   res.json(rows[0]);
 };
+exports.listarInscricoes = async (req, res) => {
+  try {
+    const [rows] = await pool.query(`
+      SELECT id, nome, email, cpf, plenaria, forma_pagamento, status_pagamento, created_at
+      FROM inscricoes
+      ORDER BY created_at DESC
+    `);
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao buscar inscrições' });
+  }
+};

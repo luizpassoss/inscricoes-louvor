@@ -139,13 +139,6 @@ async function excluir(id) {
   carregar();
 }
 
-// =======================
-// CONFIRMAR PAGAMENTO
-// =======================
-async function confirmar(id) {
-  await fetch(`${API}/admin/confirmar/${id}`, { method: 'POST' });
-  carregar();
-}
 
 
 

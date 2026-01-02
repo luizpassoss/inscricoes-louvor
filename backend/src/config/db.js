@@ -5,9 +5,20 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  port: Number(process.env.DB_PORT), // aqui é crucial
+  port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
   waitForConnections: true,
-  connectionLimit: 10
+  connectionLimit: 10,
+  queueLimit: 0
 });
+
+// TESTE DE CONEXÃO (ESSENCIAL)
+pool.getConnection()
+  .then(conn => {
+    console.log('✅ Banco conectado com sucesso');
+    conn.release();
+  })
+  .catch(err => {
+    console.error('❌ ERRO AO CONECTAR NO BANCO:', err.message);
+  });
 
 module.exports = pool;
