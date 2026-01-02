@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+<body>
+
+<header class="header">
+  <div class="title">
+    <i data-lucide="ticket"></i>
+    <span>Inscrições</span>
+  </div>
+
+  <div class="right">
+    <div class="counter">
+      <span>Total</span>
+      <strong id="total">0</strong>
+    </div>
+    <div class="actions">
+      <button class="btn secondary" onclick="exportarPDF()">
+        <i data-lucide="file-text"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<main class="content">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Plenária</th> 
+          <th>Pagamento</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="lista"></tbody>
+    </table>
+  </div>
+</main>
+<!-- Modal de edição -->
+<div id="editModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="fecharModal()">&times;</span>
+    <h2>Editar Inscrição</h2>
+    <form id="editForm">
+      <label>Nome</label>
+      <input type="text" id="editNome" required>
+
+      <label>Email</label>
+      <input type="email" id="editEmail" required>
+
+      <label>CPF</label>
+      <input type="text" id="editCpf" maxlength="14" placeholder="000.000.000-00">
+
+      <label>Telefone</label>
+      <input type="text" id="editTelefone" maxlength="15" placeholder="(00) 00000-0000">
+
+      <label>Plenária</label>
+      <select id="editPlenaria" required>
+        <option value="" disabled>Selecione a plenária</option>
+        <option value="Vocal/Base">Vocal/Base</option>
+        <option value="Orquestra">Orquestra</option>
+      </select>
+
+      <button type="submit">Salvar alterações</button>
+    </form>
+  </div>
+</div>
+
+
+
+<script src="js/admin.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>

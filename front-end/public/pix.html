@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento PIX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+  <h1>Pagamento via PIX</h1>
+
+  <p class="subtitle">
+    Para confirmar sua inscrição, realize o pagamento via PIX.
+  </p>
+
+  <!-- QR CODE -->
+  <div class="qr-box">
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020126750014BR.GOV.BCB.PIX0127tesouraria.louvor@gmail.com0222Ingresso Primeiro Lote520400005303986540548.005802BR5924LEANDRO EMANOEL FERREIRA6015SAO FRANCISCO D622605224K8WUNyWXhCTdq9CgW07Di63041C94"
+      alt="QR Code PIX"
+    >
+  </div>
+
+<!-- CHAVE PIX MINIMALISTA E PROFISSIONAL -->
+<div class="pix-box" style="margin-top: 20px; display: flex; flex-direction: column; gap: 8px;">
+  <span class="pix-label" style="font-weight: 600; color: #333; font-size: 14px;">Chave PIX</span>
+
+  <div class="pix-row" style="display: flex; align-items: center; gap: 10px;">
+    <!-- Caixa da chave -->
+    <div id="pixKey" style="
+      flex: 1;
+      padding: 12px 16px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #2c2c2c;
+      overflow-x: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      white-space: nowrap;
+    ">
+      00020126750014BR.GOV.BCB.PIX0127tesouraria.louvor@gmail.com0222Ingresso Primeiro Lote520400005303986540548.005802BR5924LEANDRO EMANOEL FERREIRA6015SAO FRANCISCO D622605224K8WUNyWXhCTdq9CgW07Di63041C94
+    </div>
+
+    <!-- Botão copiar transparente -->
+    <button class="copy-btn" title="Copiar chave PIX" style="
+      padding: 10px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      border-radius: 6px;
+    ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: #27AE60;">
+        <path d="M16 1H6a2 2 0 0 0-2 2v14h2V3h10V1zm3 4H10a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H10V7h9v14z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mensagem de cópia -->
+  <span id="copyMsg" style="
+    font-size: 13px;
+    color: #27AE60;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  "></span>
+  </div>
+
+  <p class="warning">
+    ⚠️ Importante: Caso o pagamento não seja realizado em até <strong>24 horas</strong>,
+    a inscrição será <strong>cancelada automaticamente</strong>.
+  </p>
+
+<a
+  class="whatsapp-btn"
+  href="https://wa.me/554792033596?text=Olá,%20segue%20meu%20comprovante%20do%20pagamento%20do%20Seminário%20de%20Louvor."
+  target="_blank"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M19.11 17.44c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.41-1.68-1.58-1.96-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.46.07-.7.35-.25.28-.93.9-.93 2.2s.95 2.56 1.08 2.73c.14.18 1.88 2.88 4.56 4.03.64.28 1.14.45 1.53.57.64.2 1.23.17 1.69.1.52-.08 1.64-.67 1.87-1.32.23-.64.23-1.19.16-1.32-.07-.14-.25-.21-.52-.35zM16 3C9.38 3 4 8.38 4 15c0 2.11.55 4.09 1.51 5.82L4 29l8.42-1.47A11.94 11.94 0 0 0 16 27c6.62 0 12-5.38 12-12S22.62 3 16 3z"/>
+  </svg>
+  Enviar comprovante pelo WhatsApp
+</a>
+
+
+  <p class="footer-text">
+    Após o envio do comprovante, aguarde a confirmação da organização.
+  </p>
+</div>
+
+</div>
+
+</body>
+<script>
+   const btnCopy = document.querySelector('.copy-btn');
+  const msg = document.getElementById('copyMsg');
+
+  btnCopy.addEventListener('click', () => {
+    const pixKey = document.getElementById('pixKey').innerText;
+    navigator.clipboard.writeText(pixKey)
+      .then(() => {
+        msg.textContent = 'Chave PIX copiada com sucesso!';
+        msg.style.opacity = 1;
+        setTimeout(() => { msg.style.opacity = 0; }, 3000);
+      })
+      .catch(() => {
+        msg.textContent = 'Não foi possível copiar a chave PIX.';
+        msg.style.opacity = 1;
+        setTimeout(() => { msg.style.opacity = 0; }, 3000);
+      });
+  });
+</script>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscrição – Evento Louvor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <h1>Faça sua inscrição</h1>
+      <p class="subtitle">Preencha seus dados para garantir sua participação</p>
+
+      <div class="field">
+        <label>Nome completo</label>
+        <input id="nome" placeholder="Digite seu nome" required>
+      </div>
+  <div class="field">
+  <label>CPF</label>
+  <input id="cpf" placeholder="000.000.000-00" maxlength="14">
+</div>
+<div class="field">
+  <label>Telefone</label>
+  <input id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+</div>
+
+
+     <div class="field">
+  <label>E-mail</label>
+  <input id="email" type="text" placeholder="seu@email.com">
+</div>
+
+
+      <div class="field">
+  <label>Plenária</label>
+  <select id="plenaria">
+    <option value="" disabled selected>Selecione sua plenária</option>
+    <option value="Vocal e Base">Vocal e Base</option>
+    <option value="Orquestra">Orquestra</option>
+  </select>
+</div>
+
+
+      <div class="field">
+        <label>Forma de pagamento</label>
+       <select id="forma_pagamento" placeholder="Formas de pagamento">
+ <option value="" disabled selected>Selecione a forma de pagamento</option>
+  <option value="PIX">PIX</option>
+  <option value="CARTAO">Cartão de Crédito</option>
+</select>
+
+      </div>
+
+      <button onclick="inscrever()">Confirmar inscrição</button>
+
+      <p id="msg" class="msg"></p>
+      <div class="contact-info">
+        <div class="info-contact">
+  <i data-lucide="mail"></i>
+  <span>
+    Em caso de dúvidas, fale conosco através deste e-mail:
+    <a href="mailto:tesouraria.louvor@gmail.com">
+      tesouraria.louvor@gmail.com
+    </a>
+  </span>
+</div>
+
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <div id="paymentNotice" class="payment-notice">
+  <i data-lucide="info"></i>
+  <div>
+    <strong>Pagamento em processamento</strong>
+    <p>
+      Seu ingresso será enviado por e-mail após a confirmação do pagamento.
+      Desde já agradecemos sua cooperação!
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

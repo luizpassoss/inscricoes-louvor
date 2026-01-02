@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Ingresso</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h1>Ingresso</h1>
+  <p id="nome"></p>
+  <img id="qrcode" />
+</div>
+
+<script>
+const data = JSON.parse(localStorage.getItem('ingresso'));
+document.getElementById('nome').innerText = data.nome;
+document.getElementById('qrcode').src = data.qr_code;
+</script>
+
+</body>
+</html>
