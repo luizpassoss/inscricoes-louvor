@@ -1,4 +1,4 @@
-const API = 'https://pertinently-unpublished-soila.ngrok-free.dev/api';
+const API = 'https://inscricoes-louvor-api.onrender.com/api';
 let editarId = null;
 
 // Abrir modal e preencher dados

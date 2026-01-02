@@ -1,4 +1,4 @@
-const API = 'https://pertinently-unpublished-soila.ngrok-free.dev/api';
+const API = 'https://inscricoes-louvor-api.onrender.com/api';
 
 async function inscrever() {
     const cpfLimpo = cpf.value.replace(/\D/g, '');
